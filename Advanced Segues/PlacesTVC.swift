@@ -59,7 +59,22 @@ class PlacesTVC: UITableViewController {
         performSegue(withIdentifier: "visitPlace", sender: self)
     
     }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    {
+        if editingStyle == UITableViewCellEditingStyle.delete
+        {
+            //Update Userdefaults by first deleteing the row from array then saving the array to UserDefaults
+            citiesArray.remove(at: indexPath.row)
+            tableView.reloadData()
+            
+            UserDefaults.standard.setValue(citiesArray, forKey: "city")
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         

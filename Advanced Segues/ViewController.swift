@@ -8,12 +8,14 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var placeToVisit = ""
     var addPlace = false
     var citiesArray = [String]()
+    var locationManager = CLLocationManager()
 
     @IBOutlet weak var map: MKMapView!
     override func viewDidLoad() {
@@ -23,6 +25,7 @@ class ViewController: UIViewController {
         
         if addPlace
         {
+            takeUserToCurrentLocation()
             addLongPressGestureRecogniser()
             if let objArray = UserDefaults.standard.object(forKey: "city") as? [String]
             {
@@ -36,6 +39,31 @@ class ViewController: UIViewController {
         }
         
         
+    }
+    
+    func takeUserToCurrentLocation()
+    {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Location is ", locations[0])
+        let location = locations[0]
+        
+        let deltaForSpan = 0.05
+        let span = MKCoordinateSpanMake(deltaForSpan, deltaForSpan)
+        
+        let region = MKCoordinateRegionMake(location.coordinate, span)
+        map.setRegion(region, animated: true)
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = location.coordinate
+        annotation.title = "You are here"
+        
+        map.addAnnotation(annotation)
     }
     
     func addLongPressGestureRecogniser()

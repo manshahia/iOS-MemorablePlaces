@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		325B43FE219827590083A6C6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 325B43FD219827590083A6C6 /* CoreLocation.framework */; };
 		32654EBE2196E4B600E075CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32654EBD2196E4B600E075CD /* AppDelegate.swift */; };
 		32654EC02196E4B600E075CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32654EBF2196E4B600E075CD /* ViewController.swift */; };
 		32654EC32196E4B600E075CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32654EC12196E4B600E075CD /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		325B43FD219827590083A6C6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		32654EBA2196E4B600E075CD /* Advanced Segues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Advanced Segues.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32654EBD2196E4B600E075CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32654EBF2196E4B600E075CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +33,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				325B43FE219827590083A6C6 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		325B43FC219827590083A6C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				325B43FD219827590083A6C6 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		32654EB12196E4B500E075CD = {
 			isa = PBXGroup;
 			children = (
 				32654EBC2196E4B600E075CD /* Advanced Segues */,
 				32654EBB2196E4B600E075CD /* Products */,
+				325B43FC219827590083A6C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
